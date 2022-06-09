@@ -1,0 +1,26 @@
+.chats {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chat-name {
+    width: 30%;
+    margin: 5px
+}
+
+.chat-name-item {
+    text-align: center;
+}
+
+.chat-name-item-link {
+    color: black;
+    text-decoration: none;
+}
+
+.add-chat-name {
+    width: 76%;
+}
+
+.add-chat-btn {
+    width: fit-content;
+}

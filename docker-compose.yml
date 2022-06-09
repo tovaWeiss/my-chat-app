@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./server
+    ports:
+      - $SERVER_PORT:$SERVER_PORT
+    container_name: server
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - SERVER_PORT=$SERVER_PORT
+      - MONGODB_URI=$MONGODB_URI
+      - SECRET_CODE=$SECRET_CODE
+      - CLIENT_SERVER=$CLIENT_SERVER
+    expose:
+      - "$SERVER_PORT"
+      
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_URI=$SERVER_URI
+    volumes:
+      - './client:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - $CLIENT_PORT:$CLIENT_PORT
+    expose:
+      - "$CLIENT_PORT"
+
+  mongodb:
+    container_name: mongo
+    image: mongo
+    ports:
+      - $MONGO_DB_PORT:$MONGO_DB_PORT
+    volumes:
+      - ./data/mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_INITDB_ROOT_PASSWORD

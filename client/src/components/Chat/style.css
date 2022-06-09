@@ -1,0 +1,54 @@
+.card-chat {
+    height: 40em;
+    overflow: overlay;
+    width: 45em;
+    display: flex;
+}
+
+.chat-content {
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 80%;
+}
+
+.chat-app {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header h3 {
+    padding: 10px !important;
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    border-bottom: 1px solid;
+}
+
+.chat-header {
+    padding: 0 20px 20px;
+}
+
+.message-else {
+    display: flex;
+    justify-content: end;
+}
+
+.message-me {
+    display: flex;
+    justify-content: start;
+}
+
+.send-message {
+    width: 80%;
+}
+
+.send-message-btn {
+    width: 15%;
+}
+
+.send-message-btn-in {
+    width: 100%;
+}
